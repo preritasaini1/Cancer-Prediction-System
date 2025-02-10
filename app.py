@@ -147,8 +147,8 @@ with tabs[2]:
     st.subheader("🌳 Decision Tree Visualization")
     max_depth = st.slider("Select Tree Depth", 1, 5, 3)
     fig, ax = plt.subplots(figsize=(15, 8))
-    plot_tree(rf_model.estimators_[0], feature_names=X.columns, filled=True, max_depth=max_depth)
-    st.pyplot(fig)
+    rf_model = RandomForestClassifier(n_estimators=100, max_depth=max_depth, random_state=42)
+    rf_model.fit(X_train, y_train)
     
     st.subheader("Decision Tree Summary")
     st.write(f"Tree Depth: {rf_model.estimators_[0].get_depth()}")
