@@ -147,13 +147,13 @@ with tabs[2]:
     st.subheader("🌳 Decision Tree Visualization")
     max = st.slider("Select Tree Depth", 1, 5, 3)
     fig5, ax5 = plt.subplots(figsize=(20, 10))
-    plot_tree(rf_model, feature_names=X.columns, 
-                  class_names=['Benign', 'Malignant'],
-                  filled=True, 
-                  ax=ax5, 
-                  max_depth=max,
-                  proportion=True,
-                  rounded=True)
+    plot_tree(rf_model.estimators_[0],  # Pick the first tree
+          feature_names=X.columns,
+          class_names=['Benign', 'Malignant'],
+          filled=True,
+          max_depth=max,
+          rounded=True)
+
     st.pyplot(fig5)
     
     st.subheader("Decision Tree Summary")
