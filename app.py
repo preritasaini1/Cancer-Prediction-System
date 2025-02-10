@@ -141,19 +141,27 @@ with tabs[1]:
     ax.set_title("Malignant texture_mean Distribution")
     st.pyplot(fig)
 
-# ✅ **Tab 3: Decision Tree Visualization**
-with tabs[2]:
-    
-    st.subheader("🌳 Decision Tree Visualization")
-    max = st.slider("Select Tree Depth", 1, 5, 3)
-    fig5, ax5 = plt.subplots(figsize=(20, 10))
-    plot_tree(rf_model.estimators_[0],  # Pick the first tree
-          feature_names=X.columns,
-          class_names=['Benign', 'Malignant'],
-          filled=True,
-          max_depth=max,
-          rounded=True)
+# ✅ Train a single Decision Tree model
+from sklearn.tree import DecisionTreeClassifier
 
+dt_model = DecisionTreeClassifier(max_depth=5, random_state=42)
+dt_model.fit(X_train, y_train)  # Train the Decision Tree model
+
+# ✅ Decision Tree Visualization Section
+with tabs[2]:
+    st.subheader("🌳 Decision Tree Visualization")
+
+    # Select tree depth
+    max_depth = st.slider("Select Tree Depth", 1, 5, 3)
+
+    # ✅ Plot Decision Tree
+    fig5, ax5 = plt.subplots(figsize=(20, 10))
+    plot_tree(dt_model,  # Use DecisionTreeClassifier instead of RandomForest
+              feature_names=X.columns,
+              class_names=['Benign', 'Malignant'],
+              filled=True,
+              max_depth=max_depth,
+              rounded=True)
     st.pyplot(fig5)
     
     st.subheader("Decision Tree Summary")
