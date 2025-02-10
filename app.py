@@ -19,6 +19,31 @@ st.set_page_config(
     layout="wide"
 )
 
+with st.sidebar:
+    st.title("Cancer Prediction System🔬")
+    st.subheader("About")
+    st.write("""
+    Welcome to the AI-Powered Cancer Prediction System!✨
+
+    This advanced tool, powered by machine learning and Streamlit, assists in predicting whether a tumor is benign or malignant based on various medical features.
+
+    **Features:**
+    - **Data Analysis**: Visualize key statistics and distributions.
+    - **Cancer Prediction**: Input patient data to receive a prediction.
+    - **Model Performance**: Evaluate accuracy, ROC curve, and confusion matrix.
+    - **Feature Importance**: Identify the most influential factors.
+
+    Enhance early detection and diagnosis with this smart system.
+    """)
+    def print_praise():
+        praise_quotes = """
+        Prerita Saini✨
+        """
+        title = "**Created By -**\n\n"
+        return title + praise_quotes
+
+    st.write(print_praise())
+
 # Load dataset
 file_path = "cancer.csv"
 df = pd.read_csv(file_path)
@@ -122,7 +147,7 @@ with tabs[2]:
     st.subheader("🌳 Decision Tree Visualization")
     max_depth = st.slider("Select Tree Depth", 1, 5, 3)
     fig, ax = plt.subplots(figsize=(15, 8))
-    plot_tree(rf_model.estimators_[0], feature_names=X.columns, filled=True, ax=ax)  # Remove max_depth
+    plot_tree(rf_model.estimators_[0], feature_names=X.columns, filled=True, max_depth=max_depth)
     st.pyplot(fig)
     
     st.subheader("Decision Tree Summary")
@@ -178,29 +203,4 @@ with tabs[3]:
     st.write("### Feature Distribution Insights:")
     st.info("🔹 **Histogram** provides an overview of how a feature's values are distributed.")
     st.success("🔹 **KDE Plot** helps visualize the probability density of feature values.")
-
-with st.sidebar:
-    st.title("Cancer Prediction System🔬")
-    st.subheader("About")
-    st.write("""
-    Welcome to the AI-Powered Cancer Prediction System!✨
-
-    This advanced tool, powered by machine learning and Streamlit, assists in predicting whether a tumor is benign or malignant based on various medical features.
-
-    **Features:**
-    - **Data Analysis**: Visualize key statistics and distributions.
-    - **Cancer Prediction**: Input patient data to receive a prediction.
-    - **Model Performance**: Evaluate accuracy, ROC curve, and confusion matrix.
-    - **Feature Importance**: Identify the most influential factors.
-
-    Enhance early detection and diagnosis with this smart system.
-    """)
-    def print_praise():
-        praise_quotes = """
-        Prerita Saini✨
-        """
-        title = "**Created By -**\n\n"
-        return title + praise_quotes
-
-    st.write(print_praise())
 
