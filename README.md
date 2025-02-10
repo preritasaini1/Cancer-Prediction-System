@@ -3,8 +3,6 @@
 ## 🚀 AI-Powered Diagnostic Support Tool  
 A **machine learning-based web application** built with **Streamlit**, designed to predict whether a tumor is **benign or malignant** using medical features.  
 
-![App Screenshot](https://via.placeholder.com/800x400?text=Add+your+Screenshot+Here)
-
 ---
 
 ## 📌 Features
@@ -30,3 +28,63 @@ A **machine learning-based web application** built with **Streamlit**, designed 
 ```bash
 git clone https://github.com/your-username/cancer-prediction-system.git
 cd cancer-prediction-system
+```
+
+### 2️⃣ Create a Virtual Environment
+```bash
+python -m venv venv
+```
+
+### 3️⃣ Activate the Virtual Environment  
+**For Windows:**
+```bash
+venv\Scripts\activate
+```
+**For Mac/Linux:**
+```bash
+source venv/bin/activate
+```
+
+### 4️⃣ Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 5️⃣ Run the Application
+```bash
+streamlit run app.py
+```
+
+---
+
+## 📊 Dataset Used  
+The model is trained on the **Breast Cancer Wisconsin Dataset**.  
+If using a different dataset, update `cancer.csv` in the repository.  
+
+---
+
+## 📷 Screenshots  
+📌 Add UI screenshots here to showcase the interface.  
+
+---
+
+## 📢 Deployment  
+You can deploy this project on **Streamlit Cloud**:  
+1. Push the code to GitHub  
+2. Go to [Streamlit Community Cloud](https://share.streamlit.io/)  
+3. Select your repository and deploy  
+
+---
+
+## ✨ Contributing  
+Want to improve this project? Feel free to contribute!  
+- Fork the repository  
+- Create a new branch (`feature-branch`)  
+- Commit changes and push  
+- Open a Pull Request 🚀  
+
+---
+
+## 💡 Creator  
+👨‍💻 Developed by **Prerita Saini** ✨  
+
