@@ -63,11 +63,6 @@ If using a different dataset, update `cancer.csv` in the repository.
 
 ---
 
-## 📷 Screenshots  
-📌 Add UI screenshots here to showcase the interface.  
-
----
-
 ## 📢 Deployment  
 You can deploy this project on **Streamlit Cloud**:  
 1. Push the code to GitHub  
