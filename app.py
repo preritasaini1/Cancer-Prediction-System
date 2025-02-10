@@ -145,14 +145,14 @@ with tabs[1]:
 with tabs[2]:
     
     st.subheader("🌳 Decision Tree Visualization")
-    max_depth = st.slider("Select Tree Depth", 1, 5, 3)
+    max = st.slider("Select Tree Depth", 1, 5, 3)
     fig5, ax5 = plt.subplots(figsize=(20, 10))
     plot_tree(model, 
                   feature_names=data.columns[1:].tolist(), 
                   class_names=['Benign', 'Malignant'],
                   filled=True, 
                   ax=ax5, 
-                  max_depth=max_depth,
+                  max_depth=max,
                   proportion=True,
                   rounded=True)
     st.pyplot(fig5)
