@@ -143,21 +143,20 @@ with tabs[1]:
 
 # ✅ **Tab 3: Decision Tree Visualization**
 with tabs[2]:
+    
     st.subheader("🌳 Decision Tree Visualization")
     max_depth = st.slider("Select Tree Depth", 1, 5, 3)
-    tree_index = st.selectbox("Select Tree in Random Forest", range(len(rf_model.estimators_)))
-    
     fig, ax = plt.subplots(figsize=(15, 8))
-    plot_tree(rf_model.estimators_[tree_index], 
-              feature_names=X.columns, 
-              filled=True, 
-              ax=ax)  # Ensure the plot is displayed inside `ax`
-    
+    plot_tree(rf_model.estimators_[0], feature_names=X.columns, filled=True, max_depth=max_depth)
     st.pyplot(fig)
-
+    
     st.subheader("Decision Tree Summary")
-    st.write(f"Tree Depth: {rf_model.estimators_[tree_index].get_depth()}")
-    st.write(f"Number of Leaves: {rf_model.estimators_[tree_index].get_n_leaves()}")
+    st.write(f"Tree Depth: {rf_model.estimators_[0].get_depth()}")
+    st.write(f"Number of Nodes: {rf_model.estimators_[0].get_n_leaves()}")
+
+    
+    st.subheader("Top 10 Important Features")
+    st.write(feature_importances.nlargest(10))
 
 
 # ✅ **Tab 4: Feature Analysis & Insights**
