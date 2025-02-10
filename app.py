@@ -149,6 +149,7 @@ with tabs[2]:
     fig, ax = plt.subplots(figsize=(15, 8))
     rf_model = RandomForestClassifier(n_estimators=100, max_depth=max_depth, random_state=42)
     rf_model.fit(X_train, y_train)
+    st.pyplot(fig)
     
     st.subheader("Decision Tree Summary")
     st.write(f"Tree Depth: {rf_model.estimators_[0].get_depth()}")
