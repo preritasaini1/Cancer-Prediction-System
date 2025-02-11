@@ -151,7 +151,7 @@ dt_model.fit(X_train, y_train)  # Train the Decision Tree model
 with tabs[2]:
     st.subheader("🌳 Decision Tree Visualization")
     try:
-       fig = plt.figure(figsize=(12, 6))
+        fig = plt.figure(figsize=(12, 6))
         plot_tree(dt_model, feature_names=list(df.drop(columns=['diagnosis']).columns), filled=True)
         st.pyplot(fig)
 
