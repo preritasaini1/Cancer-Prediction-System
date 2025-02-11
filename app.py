@@ -165,8 +165,8 @@ with tabs[2]:
 
     
     st.subheader("Decision Tree Summary")
-    st.write(f"Tree Depth: {rf_model.estimators_[0].get_depth()}")
-    st.write(f"Number of Nodes: {rf_model.estimators_[0].get_n_leaves()}")
+    st.write(f"Tree Depth: {dt_model.get_depth()}")
+    st.write(f"Number of Nodes: {dt_model.get_n_leaves()}")
 
     
     st.subheader("Top 10 Important Features")
