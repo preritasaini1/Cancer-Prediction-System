@@ -94,18 +94,9 @@ with tabs[0]:
     
     user_df = pd.DataFrame([user_input])
     user_df_scaled = scaler.transform(user_df)
-
-    # Allow user to select a model
-    model_choice = st.radio("Select a Model for Prediction:", ["Logistic Regression", "Random Forest"])
-    # Choose the selected model
-    if model_choice == "Logistic Regression":
-        selected_model = log_model
-    else:
-        selected_model = rf_model
     
     if st.button("🔍 Predict"):
-        #prediction = rf_model.predict(user_df_scaled)[0]
-        prediction = selected_model.predict(user_df_scaled)[0]
+        prediction = rf_model.predict(user_df_scaled)[0]
         result = "🛑 Malignant (Cancer Detected)" if prediction == 1 else "✅ Benign (No Cancer)"
         st.success(f"**Prediction: {result}**")
 
