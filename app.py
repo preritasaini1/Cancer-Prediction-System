@@ -144,12 +144,16 @@ with tabs[1]:
 # ✅ Train a single Decision Tree model
 from sklearn.tree import DecisionTreeClassifier
 
-dt_model = DecisionTreeClassifier(max_depth=5, random_state=42)
-dt_model.fit(X_train, y_train)  # Train the Decision Tree model
+#dt_model = DecisionTreeClassifier(max_depth=5, random_state=42)
+#dt_model.fit(X_train, y_train)  # Train the Decision Tree model
+
 
 # ✅ Decision Tree Visualization Section
 with tabs[2]:
     st.subheader("🌳 Decision Tree Visualization")
+    max_depth = st.slider("Select Decision Tree Depth", 2, 10, 5)  # Default 5
+    dt_model = DecisionTreeClassifier(max_depth=max_depth, random_state=42)
+    dt_model.fit(X_train, y_train)
     try:
         fig = plt.figure(figsize=(12, 6))
         plot_tree(dt_model, feature_names=list(df.drop(columns=['diagnosis']).columns), filled=True)
