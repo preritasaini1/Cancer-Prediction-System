@@ -156,12 +156,14 @@ with tabs[2]:
 
     # ✅ Plot Decision Tree
     fig5, ax5 = plt.subplots(figsize=(20, 10))
-    plot_tree(dt_model,  # Use DecisionTreeClassifier instead of RandomForest
-              feature_names=X.columns,
-              class_names=['Benign', 'Malignant'],
-              filled=True,
-              max_depth=max_depth,
-              rounded=True)
+    plot_tree(
+    dt_model,
+    feature_names=X.columns,
+    class_names=['Benign', 'Malignant'],
+    filled=True,
+    max_depth=max_depth,
+    rounded=True,
+    ax=ax5  # Make sure you're passing the axis)
     st.pyplot(fig5)
     
     st.subheader("Decision Tree Summary")
