@@ -152,7 +152,8 @@ with tabs[2]:
     st.subheader("🌳 Decision Tree Visualization")
 
     # Select tree depth
-    max_depth = st.slider("Select Tree Depth", 1, 5, 3)
+    #max_depth = st.slider("Select Tree Depth", 1, 5, 3)
+    max_depth = min(5, dt_model.get_depth())
 
     # ✅ Plot Decision Tree
     fig5, ax5 = plt.subplots(figsize=(20, 10))
