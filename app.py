@@ -150,14 +150,13 @@ dt_model.fit(X_train, y_train)  # Train the Decision Tree model
 # ✅ Decision Tree Visualization Section
 with tabs[2]:
     st.subheader("🌳 Decision Tree Visualization")
+    try:
+        fig, ax = plt.subplots(figsize=(12, 6))
+        plot_tree(dt_model, feature_names=X.columns, filled=True, ax=ax)
+        st.pyplot(fig)
+    except Exception as e:
+        st.error(f"Error rendering Decision Tree: {e}")
 
-    # Select tree depth
-    max_depth = st.slider("Select Tree Depth", 1, 5, 3)
-
-    # ✅ Plot Decision Tree
-    fig, ax = plt.subplots(figsize=(12, 6))  # Smaller figure size
-    plot_tree(dt_model, feature_names=X.columns, filled=True, ax=ax)
-    st.pyplot(fig)
 
     
     st.subheader("Decision Tree Summary")
