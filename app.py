@@ -163,7 +163,7 @@ with tabs[2]:
     filled=True,
     max_depth=max_depth,
     rounded=True,
-    ax=ax5  # Make sure you're passing the axis)
+    ax=ax5 ) # Make sure you're passing the axis)
     st.pyplot(fig5)
     
     st.subheader("Decision Tree Summary")
